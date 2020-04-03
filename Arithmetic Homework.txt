@@ -1,0 +1,79 @@
+Tyler Pranger
+April 3, 2020
+Arithmetic Homework
+
+1.
+Predicate: triangle(X) :- triangle(1,X) .
+triangle(P,X) :- P > 0 , sum(P,X) .
+triangle(P,X) :- P > 0 , P1 is P+1 , triangle(P1,X) .
+
+sum(N,X) :- sum(N,0,X) .
+
+sum(0,X,X).
+sum(N,T,X) :-
+  N > 0 ,
+  N1 is N-1 ,
+  T1 is T+N ,
+  sum(N1,T1,X)
+  .
+
+2.
+triangle(P,X) :- P > 0 , sum(P,X) .
+triangle(P,X) :- P > 0 , P1 is P+1 , triangle(P1,X) .
+
+sum(N,X) :- sum(N,0,X) .
+
+sum(0,X,X).
+sum(N,T,X) :-
+  N > 0 ,
+  N1 is N-1 ,
+  T1 is T+N ,
+  sum(N1,T1,X)
+  .
+
+next_num(N,X) :-
+  triangle(X) ,
+  X > N,
+  !
+
+3.
+
+list = symbol*
+
+predicate: 
+	len(list)
+        countlen(list,integer)
+len(X):-
+        countlen(X,Count),
+        write(\"\\nLength Of List : \"),
+        write(Count).
+
+    countlen([],X):-
+        X=0.
+
+    countlen([X|End],Count):-
+        countlen(End,Prev),
+        Count = Prev + 1,
+	!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
