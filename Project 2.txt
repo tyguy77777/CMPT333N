@@ -1,0 +1,32 @@
+import java.util.Scanner; 
+  
+class interval 
+{ 
+% Data for months
+month(month,day) == month(january,31),month(february,28),month(march,31),month(april,30),month(may,31),month(june,30),month(july,31),month(august,31),month(september,30),month(october,31),month(november,30),month(december,31)
+
+% Data for month sequence
+month_order(month1,month2) == month_order(january,february),month_order(february,march),month_order(march,april),month_order(april,may),month_order(may,june),month_order(june,july),month_order(july,august),month_order(august,september),month_order(september,october),month_order(october,november),month_order(november,december)
+
+%program to find interval
+
+
+    public static void main(String args[]) 
+    { 
+        // Get input for 1st month
+        Scanner in = new Scanner(System.in); 
+  
+        String month1 = in.nextLine(); 
+        System.out.println("Your month is"+month1);
+
+ 	 // Get input for 2nd month
+        Scanner in = new Scanner(System.in); 
+  
+        String month2 = in.nextLine(); 
+        System.out.println("Your month is"+month2);
+
+	day_interval == (day.month1 - day.month2)
+	
+	System.out.println("There are"+day_interval+"days between your months");     
+    } 
+} 
