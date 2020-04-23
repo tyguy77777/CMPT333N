@@ -1,0 +1,31 @@
+
+1.
+quicksort([X|Xs],Ys) ←
+	partition(Xs,X,Littles,Bigs),
+	quicksort(Littles,Ls),
+	quicksort(Bigs,Bs),
+	append(Ls,[X|Bs],Ys).
+quicksort([ ],[ ]).
+
+partition([X|Xs],Y,[X|Ls],Bs) ← X ≤ Y, partition(Xs,Y,Ls,Bs),!.
+partition([X|Xs],Y,Ls,[X|Bs]) ← X > Y, partition(Xs,Y,Ls,Bs).
+partition([ ],Y,[ ],[ ]).
+
+2.
+
+You can put a cut in this block of code:
+
+substitute(N,Old,New,Term,Term1) :-
+N > 0,
+arg(N,Term,Arg),
+substitute(Old,New,Arg,Arg1),!,
+arg(N,Term1,Arg1),
+N1 is N-1,
+substitute(N1,Old,New,Term,Term1).
+substitute(0,Old,New,Term,Term1).
+
+Meaning the code does not have to find new arguments to replace the values
+within substitute.
+
+A cut-fail would not be necessary, as no form of negation can be found here
+where X can be proven to be untrue.
