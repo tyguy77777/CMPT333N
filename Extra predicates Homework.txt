@@ -1,0 +1,32 @@
+Tyler Pranger
+05/01/2020
+Homework-Extra predicates:
+
+1.
+
+shell_solve(Goal,Flag) :- Goal,shell_write(Goal,Flag),nl,fail.
+shell_solve (Goal,Flag) :- shell_write(‘No (more) solutions’,Flag),nl.
+shell_solve_ground(Goal Flag) :- Goal,!,shell_write('Yes’,Flag),nl.
+shell_solve_ground(Goal,Flag) :- shell_write('No',Flag),nl.
+shell_prompt :- write('Next Command? ‘).
+
+shell_read(X,log) :- read(x), name(x)
+file_write(['Next Command?:',X], read(x), name(x)).
+
+shell_write(X,log) :- write(X), file_write(X, read(x), name(x)).
+
+file_write(X,File) :- write_term(File,Term,[ ]).
+close_logging_file :- close(read(x), name(x)).
+
+2.
+
+apply(down,file([X|Xs],Ys),file(Xs,[X|Ys])).
+apply(down(N),file(Xs,Ys),file(Xsl,Ysl)) :- 
+	N < 5,down(N,Xs,Ys,Xsl,Ysl).
+apply(down,file(Xs,[Y|Ys]),file([Y|Xs],Ys)).
+apply(insert(Line),file(Xs,Ys),file(Xs,[Line|Ys])).
+apply(delete,file(Xs,[Y|Ys]),file(Xs,Ys)).
+apply(print,file([X|Xs],Ys),file([X|Xs],Ys)) :- 
+	write(X),nl.
+apply(print(*),file(Xs,Ys),file(Xs,Ys)) :- 
+	reverse(Xs,Xsl),write_file(Xsl),write_file(Ys).
