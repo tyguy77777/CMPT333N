@@ -1,0 +1,23 @@
+Project 4
+
+% List possible months, list the possible dates as variables, list possible years, and list the leap years
+possiblemonths([January,June,July]).
+possibledays([1,2,3,4,5,6,7]).
+possibleyears([1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,
+1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,2923,1924,1925,1926,1927,1928,1929,1930)].
+leapyears([1900,1904,1908,1912,1916,1920,1924,1928])
+
+solution(possiblemonths,possibleyears) :-
+	write("We know that the mother was born eight years earlier, so we must count backwards from Monday 8 times").
+	N is (|2-8|),
+	write(N).
+	write("For 8 years to pass, normally you would go through 2 leap years.").
+	write("But the fact their anniversary was a weekend means Only 1 leap year could be recorded.").
+	append(possiblemonths).
+	write("january").
+	write("January is the only possible month. According to doomsday, January the 27th was a weekend in 1900.").
+	write("Carol's mother was born January 27th, 1908").
+	
+	
+	
+	
