@@ -1,3 +1,4 @@
+// JA: It's supposed to be a Prolog program.
 import java.util.Scanner; 
   
 class interval 
